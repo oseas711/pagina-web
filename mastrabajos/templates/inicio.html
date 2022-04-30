@@ -1,0 +1,161 @@
+{% extends 'base.html' %} {% block titulo %} +trabajos {% endblock titulo %} {% load static %} {% block contenido %}
+<section>
+    <div class="swiper-container swiper-slider swiper-variant-1 bg-black" data-loop="false" data-autoplay="5500" data-simulate-touch="true">
+        <div class="swiper-wrapper text-center">
+            <div class="swiper-slide" data-slide-bg="{% static 'images/trabajo1.jpg' %}">
+                <div class="swiper-slide-caption text-center">
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-11 col-lg-10 col-xl-9">
+                                <div class="header-decorated" data-caption-animate="fadeInUp" data-caption-delay="0s">
+                                    <h3 class="medium text-primary">Con nosostros</h3>
+                                </div>
+                                <h2 class="slider-header" data-caption-animate="fadeInUp" data-caption-delay="150">Mas de 10.000 Ofertas de Empleo para Ti</h2>
+                                <p class="text-bigger slider-text" data-caption-animate="fadeInUp" data-caption-delay="250">Busca el Trabajo Ideal para ti </p>
+                                <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="400"><a class="button button-lg button-primary-outline-v2" href="{% url 'register' %}">Registrarte</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-66 section-md-90 section-xl-bottom-100">
+    <div class="container">
+      <h3 class="text-center">Ofertas de Trabajo</h3>
+      {% for empleo in empleos %}
+      <div class="owl-carousel owl-spacing-1 owl-nav-classic owl-style-minimal" >
+        <div class="item">
+          <blockquote class="quote-bordered">
+            <div class="quote-body">
+              <div class="quote-open">
+                <svg version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="37px" height="27px" viewbox="0 0 21 15" preserveAspectRatio="none">
+                  <path d="M9.597,10.412c0,1.306-0.473,2.399-1.418,3.277c-0.944,0.876-2.06,1.316-3.349,1.316                    c-1.287,0-2.414-0.44-3.382-1.316C0.482,12.811,0,11.758,0,10.535c0-1.226,0.58-2.716,1.739-4.473L5.603,0H9.34L6.956,6.37                    C8.716,7.145,9.597,8.493,9.597,10.412z M20.987,10.412c0,1.306-0.473,2.399-1.418,3.277c-0.944,0.876-2.06,1.316-3.35,1.316                    c-1.288,0-2.415-0.44-3.381-1.316c-0.966-0.879-1.45-1.931-1.45-3.154c0-1.226,0.582-2.716,1.74-4.473L16.994,0h3.734l-2.382,6.37                    C20.106,7.145,20.987,8.493,20.987,10.412z"></path>
+                </svg>
+              </div>
+              <div class="quote-body-inner">
+                <h6> {{empleo.nombre}} </h6>
+                <p>
+                  <q>{{empleo.description}}</q>
+                </p>
+                <div class="unit unit-horizontal unit-spacing-sm align-items-center">
+                    <div class="unit-left"><img class="img-circle" src="{% static 'images/comida.png' %}" alt="" width="68" height="68"/>
+                    </div>
+                         <div class="unit-body">
+                            <cite> {{empleo.paga}} </cite>
+                            <p class="text-primary">{{empleo.jornadas}}</p>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+<section class="bg-whisper">
+    <div class="container">
+        <div class="row">
+                    <h3>Comentarios</h3>
+                    <form class="rd-mailform" data-form-output="form-output-global"  method="post">
+                        {% csrf_token %}
+                        <div class="row row-30">
+                                {{ forms }}
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button class="button button-block button-primary" type="submit">Enviar Comentario </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="col-xl-5 d-none d-xl-block">
+                <div style="margin-top: 166px;"><img src="{% static 'images/trabajobanner2.jpg' %}" alt="" width="472" height="753" /> </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+
+<section class="section-50 section-md-75 section-xl-100">
+    <div class="container">
+        <h3 class="text-center">Areas de Vacantes </h3>
+        <div class="row row-40 row-offset-1 justify-content-sm-center justify-content-md-start">
+            <div class="col-sm-9 col-md-6 col-lg-4 col-xl-3">
+                <article class="post-boxed">
+                    <div class="post-boxed-image"><img src="{% static 'images/imagen1.jpeg' %}" alt="" width="268" height="182" />
+                    </div>
+                    <div class="post-boxed-body">
+                        <div class="post-boxed-title"><a href="https://empleosti.com.mx/">TICS </a></div>
+                        <div class="post-boxed-footer">
+                            <ul class="post-boxed-meta">
+                                <li>
+                                    <time datetime="2019-06-14">MARZO 22, 2022</time>
+                                </li>
+                                <li><span>by</span><a href="#">OseasJV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-sm-9 col-md-6 col-lg-4 col-xl-3">
+                <article class="post-boxed">
+                    <div class="post-boxed-image"><img src="{% static 'images/gastronomia.jpeg' %}" alt="" width="108" height="182" />
+                    </div>
+                    <div class="post-boxed-body">
+                        <div class="post-boxed-title"><a href="#">Gastronomia</a></div>
+                        <div class="post-boxed-footer">
+                            <ul class="post-boxed-meta">
+                                <li>
+                                    <time datetime="2019-06-20">JULIO 20, 2022</time>
+                                </li>
+                                <li><span>by</span><a href="#">OseasJV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-sm-9 col-md-6 col-lg-4 col-xl-3">
+                <article class="post-boxed">
+                    <div class="post-boxed-image"><img src=" {% static 'images/docencialogo.jpg' %}" alt="" width="268" height="182" />
+                    </div>
+                    <div class="post-boxed-body">
+                        <div class="post-boxed-title"><a href="#">Docencia </a></div>
+                        <div class="post-boxed-footer">
+                            <ul class="post-boxed-meta">
+                                <li>
+                                    <time datetime="2019-06-23">JUnNIO 22, 2022</time>
+                                </li>
+                                <li><span>by</span><a href="#">OseasJV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-sm-9 col-md-6 col-lg-4 col-xl-3">
+                <article class="post-boxed">
+                    <div class="post-boxed-image"><img src="{% static 'images/ingienerialogo.jpg' %}" alt="" width="268" height="182" />
+                    </div>
+                    <div class="post-boxed-body">
+                        <div class="post-boxed-title"><a href="#">Ingienerias</a></div>
+                        <div class="post-boxed-footer">
+                            <ul class="post-boxed-meta">
+                                <li>
+                                    <time datetime="2019-06-12">ingieneria</time>
+                                </li>
+                                <li><span>by</span><a href="#">OseasJV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock contenido %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<div id="main">
+    <div class="container">
+        <div class="row events-list">
+            {% for empresa in empresas %}
+
+            <div class="col-12 col-lg-6 single-event">
+                <header class="entry-header flex justify-content-between">
+                    <div>
+                        <h1 style="color: blue; ">{{ empresa.Marca }}</h1>
+                        <a><img src="{{ Publicidad.imagen.url }}" alt="" class="left" /></a>
+                        <section>
+                            <pre
+                                style="color: black; height: 300px; overflow-y: auto;">{{ empresa.description }}</pre>
+                            <br>
+                        </section>
+                    </div>
+                </header>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
